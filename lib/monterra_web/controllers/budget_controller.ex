@@ -15,7 +15,6 @@ defmodule MonterraWeb.BudgetController do
     with {:ok, %Budget{} = budget} <- Budgets.create_budget(budget_params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", ~p"/api/budgets/#{budget}")
       |> render(:show, budget: budget)
     end
   end
